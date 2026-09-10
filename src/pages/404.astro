@@ -1,15 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Shell from '../components/Shell.astro';
-import { site } from '../data/site';
+import { seo, site } from '../data/site';
 
 export const prerender = true;
 ---
 
 <Layout
-  title="Pagina non trovata"
-  description={`La pagina non esiste. Torna su ${site.name}.`}
-  path="/"
+  title={seo.notFoundTitle}
+  description={`La pagina non esiste. Torna su ${site.name}, ristorante e pizzeria a Sommariva del Bosco.`}
   noindex
 >
   <Shell>

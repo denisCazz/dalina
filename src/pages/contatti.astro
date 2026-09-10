@@ -1,21 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Shell from '../components/Shell.astro';
-import { site } from '../data/site';
-import { restaurantJsonLd, webpageJsonLd, websiteJsonLd } from '../lib/jsonld';
+import { seo, site } from '../data/site';
+import { coreGraph, webpageJsonLd } from '../lib/jsonld';
 
-const title = 'Contatti';
-const description = `D'Alina, ${site.address.display}. Telefono ${site.telephoneDisplay}. Prenota un tavolo o passa in Via Canale.`;
 const jsonLd = [
-  restaurantJsonLd(),
-  websiteJsonLd(),
-  webpageJsonLd({ path: '/contatti', title, description }),
+  ...coreGraph(),
+  webpageJsonLd({ path: '/contatti', title: seo.contactsTitle, description: seo.contactsDescription }),
 ];
 ---
 
 <Layout
-  title={title}
-  description={description}
+  title={seo.contactsTitle}
+  description={seo.contactsDescription}
   path="/contatti"
   jsonLd={jsonLd}
   breadcrumbs={[
@@ -28,7 +25,8 @@ const jsonLd = [
       <p class="kicker">Via Canale, 48</p>
       <h1>Vieni da D'Alina.</h1>
       <p class="lead muted">
-        Siamo a Sommariva del Bosco, nel Roero. Pizza, cucina, serate. Una telefonata basta per un tavolo.
+        Pizzeria e ristorante a Sommariva del Bosco, nel Roero. Pizza, cucina, serate. Una telefonata
+        basta per un tavolo.
       </p>
 
       <dl>

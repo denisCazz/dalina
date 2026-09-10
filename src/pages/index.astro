@@ -1,21 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Shell from '../components/Shell.astro';
-import { offerings, site } from '../data/site';
-import { faqJsonLd, restaurantJsonLd, webpageJsonLd, websiteJsonLd } from '../lib/jsonld';
+import { faqs, offerings, seo, site } from '../data/site';
+import { coreGraph, faqJsonLd, webpageJsonLd } from '../lib/jsonld';
 
-const description = site.description;
 const jsonLd = [
-  restaurantJsonLd(),
-  websiteJsonLd(),
-  webpageJsonLd({ path: '/', title: `${site.name} · ${site.tagline}`, description }),
+  ...coreGraph(),
+  webpageJsonLd({ path: '/', title: seo.homeTitle, description: site.description }),
   faqJsonLd(),
 ];
 ---
 
 <Layout
-  title={site.name}
-  description={description}
+  title={seo.homeTitle}
+  description={site.description}
   path="/"
   jsonLd={jsonLd}
   breadcrumbs={[{ name: 'Home', path: '/' }]}
@@ -41,9 +39,9 @@ const jsonLd = [
           <figure class="hero-photo">
             <img
               src="/logo-dalina.png"
-              width="800"
-              height="800"
-              alt="D'Alina ristorante pizzeria"
+              width="1024"
+              height="1024"
+              alt="D'Alina ristorante pizzeria a Sommariva del Bosco"
               loading="eager"
               fetchpriority="high"
             />
@@ -85,6 +83,21 @@ const jsonLd = [
         D'Alina ha aperto in Via Canale 48. Un locale accogliente per la pizza, la cucina e le serate con gli
         amici. Musica, tavoli lunghi, il forno acceso. Non è solo un ristorante: è il posto dove stare insieme.
       </p>
+    </section>
+
+    <section class="section wrap faq" id="faq" aria-labelledby="faq-title">
+      <div>
+        <p class="kicker">Domande</p>
+        <h2 id="faq-title">Prima di venire.</h2>
+      </div>
+      <dl>
+        {faqs.map((item) => (
+          <div>
+            <dt>{item.question}</dt>
+            <dd>{item.answer}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
 
     <section class="section wrap visit">
@@ -280,6 +293,43 @@ const jsonLd = [
     color: color-mix(in srgb, var(--ink) 62%, transparent);
   }
 
+  .faq {
+    display: grid;
+    gap: 1.8rem;
+    align-items: start;
+  }
+
+  .faq h2 {
+    font-size: clamp(2.4rem, 7vw, 4.6rem);
+    max-width: 12ch;
+    margin-bottom: 0.4rem;
+  }
+
+  .faq dl {
+    margin: 1.6rem 0 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .faq dl > div {
+    padding: 1.2rem 1.25rem 1.15rem;
+    border: 1px solid var(--line);
+    background: color-mix(in srgb, var(--cocoa) 70%, transparent);
+  }
+
+  .faq dt {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .faq dd {
+    margin: 0;
+    color: var(--cream-muted);
+  }
+
   .visit {
     display: grid;
     gap: 2rem;
@@ -333,6 +383,10 @@ const jsonLd = [
     .tickets,
     .locale,
     .visit {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .faq dl {
       grid-template-columns: 1fr 1fr;
     }
 

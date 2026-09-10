@@ -2,23 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Shell from '../components/Shell.astro';
 import { menu } from '../data/menu';
-import { site } from '../data/site';
-import { menuJsonLd, restaurantJsonLd, webpageJsonLd, websiteJsonLd } from '../lib/jsonld';
+import { seo, site } from '../data/site';
+import { coreGraph, menuJsonLd, webpageJsonLd } from '../lib/jsonld';
 
-const title = 'Menu';
-const description =
-  "Menu D'Alina a Sommariva del Bosco: pizze classiche e speciali, cucina e dolci. Carta statica, semplice, da aggiornare al banco.";
 const jsonLd = [
-  restaurantJsonLd(),
-  websiteJsonLd(),
-  webpageJsonLd({ path: '/menu', title, description }),
+  ...coreGraph(),
+  webpageJsonLd({ path: '/menu', title: seo.menuTitle, description: seo.menuDescription }),
   menuJsonLd(),
 ];
 ---
 
 <Layout
-  title={title}
-  description={description}
+  title={seo.menuTitle}
+  description={seo.menuDescription}
   path="/menu"
   jsonLd={jsonLd}
   breadcrumbs={[
@@ -30,9 +26,10 @@ const jsonLd = [
     <section class="wrap page">
       <header class="menu-hero">
         <p class="kicker">La carta</p>
-        <h1>Menu</h1>
+        <h1>Menu pizza e cucina</h1>
         <p class="lead muted">
-          Una carta semplice. Per allergie e intolleranze, chiedi a noi.
+          Pizze classiche e speciali, cucina e dolci a Sommariva del Bosco. Per allergie e
+          intolleranze, chiedi a noi.
         </p>
       </header>
 
