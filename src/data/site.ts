@@ -6,7 +6,7 @@ export const site = {
   tagline: 'Ristorante · Pizzeria',
   shortDescription: 'Ristorante e pizzeria a Sommariva del Bosco, nel Roero.',
   description:
-    "D'Alina è pizzeria e ristorante in Via Canale 48 a Sommariva del Bosco (CN). Pizza al forno, cucina e serate nel Roero. Aperti mercoledì–domenica 18:30–01:00. Tel. 379 134 8946.",
+    "D'Alina è pizzeria e ristorante in Via Canale 48 a Sommariva del Bosco (CN). Pizza al forno, una piccola selezione di hamburger e serate nel Roero. Aperti mercoledì–domenica 18:30–01:00. Tel. 379 134 8946.",
   url: 'https://dalina.bitora.it',
   lang: 'it',
   locale: 'it_IT',
@@ -44,6 +44,10 @@ export const site = {
   creator: {
     name: 'bitora.it',
     url: 'https://bitora.it',
+  },
+  umami: {
+    src: 'https://umami.bitora.it/script.js',
+    websiteId: 'daa633eb-5516-4bac-a50f-595fb2ffd9b4',
   },
   hours: {
     display: 'Mercoledì – Domenica, 18:30 – 01:00',
@@ -97,7 +101,7 @@ export const faqs = [
   {
     question: "D'Alina è una pizzeria o un ristorante?",
     answer:
-      'Tutte e due. Pizza al forno e cucina, a Sommariva del Bosco, nel Roero.',
+      'Tutte e due. Pizza al forno e una piccola selezione di hamburger, a Sommariva del Bosco, nel Roero.',
   },
 ] as const;
 
@@ -108,9 +112,9 @@ export const offerings = [
     text: 'Impasto, forno, classiche e speciali. La base di ogni serata.',
   },
   {
-    id: 'cucina',
-    title: 'Cucina',
-    text: 'Piatti della casa, griglia e primi. Per chi vuole restare a tavola.',
+    id: 'hamburger',
+    title: 'Hamburger',
+    text: 'Una piccola selezione, per chi vuole altro oltre la pizza.',
   },
   {
     id: 'serate',

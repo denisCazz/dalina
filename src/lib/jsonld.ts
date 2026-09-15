@@ -82,7 +82,7 @@ export function restaurantJsonLd() {
     email: site.email,
     priceRange: site.priceRange,
     currenciesAccepted: site.currenciesAccepted,
-    servesCuisine: ['Italian', 'Pizza', 'Piemontese'],
+    servesCuisine: ['Italian', 'Pizza', 'Burger'],
     acceptsReservations: true,
     vatID: site.vatId,
     taxID: site.vat,

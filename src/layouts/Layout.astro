@@ -112,6 +112,12 @@ const graph =
     {canonical && <link rel="alternate" hreflang="it" href={canonical} />}
     {canonical && <link rel="alternate" hreflang="x-default" href={canonical} />}
     {graph && <script type="application/ld+json" set:html={JSON.stringify(graph)} />}
+    <script
+      is:inline
+      defer
+      src={site.umami.src}
+      data-website-id={site.umami.websiteId}
+    ></script>
   </head>
   <body>
     <a class="skip-link" href="#contenuti">Vai ai contenuti</a>
