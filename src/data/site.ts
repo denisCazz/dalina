@@ -72,9 +72,9 @@ export const site = {
 
 export const seo = {
   homeTitle: "Pizzeria e ristorante a Sommariva del Bosco | D'Alina",
-  menuTitle: "Menu pizza e cucina | D'Alina Sommariva del Bosco",
+  menuTitle: "Menu pizza | D'Alina Sommariva del Bosco",
   menuDescription:
-    "Menu di D'Alina a Sommariva del Bosco: pizze classiche e speciali, cucina e dolci. Carta in Via Canale 48, nel Roero. Per allergie chiedi al banco.",
+    "Menu di D'Alina a Sommariva del Bosco: pizze classiche, focacce, dolci e supplementi. Carta in Via Canale 48, nel Roero. Per allergie chiedi al banco.",
   contactsTitle: 'Orari, telefono e mappa | D\'Alina Sommariva del Bosco',
   contactsDescription: `Contatti D'Alina, ${site.address.display}. Aperti mercoledì–domenica 18:30–01:00. Tel. ${site.telephoneDisplay}. Prenota un tavolo o passa in Via Canale.`,
   ogImageAlt: "D'Alina — ristorante e pizzeria a Sommariva del Bosco, nel Roero",
